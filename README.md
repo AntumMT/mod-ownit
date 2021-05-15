@@ -1,16 +1,23 @@
-## Ownit: Node Ownership
+## Ownit: Set/Unset Node Owner
 
 ### Description:
 
-A tool for setting or removing ownership of a node. Ownership is determined by the "owner" attribute in the node's meta data. In order for this to actually be effective, other mods must respect that attribute. Otherwise, setting the owner does nothing.
+![wand](textures/ownit_wand.png)
 
-One instance where this tool is useful is in cases where a player wants to unown a door so others can use it freely.
+A tool for setting or removing "ownership" of a node. Not to be confused with an area protection mod. Ownership is determined by the "owner" attribute in the node's meta data. In order for this to actually be effective, other mods must respect that attribute. Otherwise, setting the owner does nothing.
 
-In future versions, setting ownership will only be possible in protected areas where the player using the wand is the owner.
+- Player can own a node if the node is unowned & in an area protected/owned by the player. A protection mod is required as vanilla `minetest.is_protected` method always returns `false`.
+- Player can unown a node if they are the current owner.
+
+Unsetting ownership can be useful for mods that set ownership automatically when a node is placed (some doors for instance).
+
+This mod has been tested to be working with the following protection mods:
+- [simple_protection](https://forum.minetest.net/viewtopic.php?t=9035)
 
 ### Usage:
 
-Simply use the wand on a node to own or unown it. Nodes already owned by other players cannot be hijacked.
+- *left-click (use):* Sets/Unsets user as owner.
+- *right-click (place):* Checks owner status & outputs to chat log.
 
 ### Licensing:
 
@@ -20,5 +27,6 @@ Simply use the wand on a node to own or unown it. Nodes already owned by other p
 
 ### Links:
 
+- [Git repo](https://github.com/AntumMT/mod-ownit)
 - [Changelog](CHANGES.txt)
 - [TODO](TODO.txt)
