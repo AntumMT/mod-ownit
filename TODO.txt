@@ -1,2 +1,3 @@
 
 - support `areas` mod
+- add craft recipe
