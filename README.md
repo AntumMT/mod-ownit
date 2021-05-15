@@ -28,5 +28,6 @@ This mod has been tested to be working with the following protection mods:
 ### Links:
 
 - [Git repo](https://github.com/AntumMT/mod-ownit)
+- [Forum](https://forum.minetest.net/viewtopic.php?t=26740)
 - [Changelog](CHANGES.txt)
 - [TODO](TODO.txt)
