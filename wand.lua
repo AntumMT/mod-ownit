@@ -1,4 +1,18 @@
 
+local use_s_protect = core.global_exists("s_protect")
+
+local function is_area_owner(pos, pname)
+	if not pname then return false end
+
+	if use_s_protect then
+		-- FIXME: not working
+		return s_protect.can_access(pos, pname)
+	else
+		core.is_protected(pos, pname)
+	end
+end
+
+
 core.register_craftitem(ownit.modname .. ":wand", {
 	description = "Tool for setting node owner",
 	short_description = "Ownit Wand",
@@ -27,7 +41,11 @@ core.register_craftitem(ownit.modname .. ":wand", {
 			nmeta:set_string("owner", nil)
 			core.chat_send_player(pname, "You no longer own this node")
 		else
-			-- FIXME: should only be able to set ownership of nodes in protected areas owned by same player
+			if not is_area_owner(pos, pname) then
+				core.chat_send_player(pname, "You cannot take ownership of a node that is not in an area owned by you")
+				return
+			end
+
 			nmeta:set_string("owner", pname)
 			core.chat_send_player(pname, "You now own this node")
 		end
