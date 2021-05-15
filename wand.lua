@@ -30,7 +30,7 @@ core.register_craftitem(ownit.modname .. ":wand", {
 		local current_owner = nmeta:get_string("owner")
 
 		if current_owner ~= "" and pname ~= current_owner then
-			core.chat_send_player("You cannot take ownership of a node owned by another player")
+			core.chat_send_player(pname, "You cannot take ownership of a node owned by another player")
 			return
 		end
 
@@ -41,6 +41,7 @@ core.register_craftitem(ownit.modname .. ":wand", {
 			nmeta:set_string("owner", nil)
 			core.chat_send_player(pname, "You no longer own this node")
 		else
+			--[[
 			if not is_area_owner(pos, pname) then
 				core.chat_send_player(pname, "You cannot take ownership of a node that is not in an area owned by you")
 				return
@@ -48,6 +49,9 @@ core.register_craftitem(ownit.modname .. ":wand", {
 
 			nmeta:set_string("owner", pname)
 			core.chat_send_player(pname, "You now own this node")
+			]]
+
+			core.chat_send_player(pname, "Setting ownership currently not functional")
 		end
 	end,
 })

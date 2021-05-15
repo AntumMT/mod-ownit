@@ -1,2 +1,2 @@
 
-- only allow setting ownership in protected areas owned by player using wand
+- enable setting owner
