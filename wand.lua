@@ -56,7 +56,20 @@ core.register_craftitem(ownit.modname .. ":wand", {
 
 			nmeta:set_string("owner", pname)
 			core.chat_send_player(pname, "You now own this node")
+		end
+	end,
+	on_place = function(itemstack, placer, pointed_thing)
+		if not placer:is_player() then return end
+		local pos = check_node_pos(pointed_thing)
+		if not pos then return end
 
+		local pname = placer:get_player_name()
+		local node_owner = core.get_meta(pos):get_string("owner")
+
+		if node_owner == "" then
+			core.chat_send_player(pname, "This node is unowned")
+		else
+			core.chat_send_player(pname, "This node is owned by " .. node_owner)
 		end
 	end,
 })
