@@ -1,2 +1,2 @@
 
-- actually make it do something
+- only allow setting ownership in protected areas owned by player using wand
