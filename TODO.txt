@@ -1,2 +1,2 @@
 
-- enable setting owner
+- support `areas` mod
